@@ -144,6 +144,7 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 10px;
 }
 .background-container .hamburger-icon {
   background-color: transparent;
