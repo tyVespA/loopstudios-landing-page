@@ -177,6 +177,7 @@ section {
 
 .section-two {
   text-align: center;
+  padding-top: 0;
 }
 .section-two .creations {
   display: flex;
