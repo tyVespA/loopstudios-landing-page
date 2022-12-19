@@ -17,9 +17,9 @@
 /*
   3. Allow percentage-based heights in the application
 */
-html, body {
-  height: 100%;
-}
+// html, body {
+//   height: 100%;
+// }
 /*
   Typographic tweaks!
   4. Add accessible line-height
@@ -55,6 +55,19 @@ p, h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
+/*------------------------------------*\
+  #MEDIA QUERY MIXINS
+\*------------------------------------*/
+
+@mixin for-phone-only {
+  @media (max-width: 899px) { @content; }
+}
+
+@mixin for-tablet-up {
+  @media (min-width: 900px) { @content; }
+}
+
+
 
 
 
@@ -67,6 +80,7 @@ $primary-100: hsl(0, 0%, 100%);
 $primary-400: hsl(0, 0%, 55%);
 $primary-700: hsl(0, 0%, 41%);
 $primary-900: hsl(0, 0%, 0%);
+
 
 
 

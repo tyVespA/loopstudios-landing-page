@@ -2,8 +2,11 @@
 
 body > * {
   padding: 30px 20px;
-  max-width: 1200px;
-  margin-inline: auto;
+
+  &:not(.background-container):not(footer) {
+    max-width: 1150px;
+    margin-inline: auto;
+  }
 }
 
 h2 {
@@ -16,11 +19,21 @@ section {
 }
 
 .background-container {
+  padding: 30px 20px;
   color: $primary-100;
   background-image: url(../images/mobile/image-hero.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
+  @include for-tablet-up {
+    background-image: url("../images/desktop/image-hero.jpg");
+  }
+
+  & > * {
+    max-width: 1150px;
+    margin-inline: auto;
+  }
 
   header {
     display: flex;
@@ -49,19 +62,43 @@ section {
 
 .section-one {
   text-align: center;
-  //mq
+  position: relative;
+  
+  @include for-tablet-up {
+    display: flex;
+    text-align: start;
+  }
 
   img {
+    width: 100%;
     margin-bottom: 40px;
     margin-inline: auto;
   }
 
-  h2 {
-    margin-bottom: 20px;
-  }
+  .section-one-text {
+    max-width: 54ch;
+    margin-inline: auto;
 
-  p {
-    color: $primary-700;
+    @include for-tablet-up {
+      background-color: $primary-100;
+      padding: 90px 0 0 90px;
+      position: absolute;
+      right: 0px;
+      bottom: 120px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      max-width: 20ch;
+      margin-inline: auto;
+      @include for-tablet-up {
+        font-size: 2.5rem;
+      }
+    }
+
+    p {
+      color: $primary-700;
+    }
   }
 }
 
@@ -69,6 +106,30 @@ section {
   text-align: center;
   padding-top: 0;
   //mq
+
+  @include for-phone-only {
+    .see-all-deskstop {
+      display: none;
+    }
+  }
+
+  @include for-tablet-up {
+    .section-two-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 50px;
+      padding-inline: 12px;
+
+      h2 {
+        margin-bottom: 0;
+      }
+    }
+
+    .see-all-mobile {
+      display: none;
+    }
+  }
 
   .creations {
     display: flex;
@@ -92,6 +153,11 @@ footer {
   color: $primary-100;
   text-align: center;
   padding: 40px 0;
+
+  & > * {
+    max-width: 1150px;
+    margin-inline: auto;
+  }
 
   .logo img{
     margin-inline: auto;
