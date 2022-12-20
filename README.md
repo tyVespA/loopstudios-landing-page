@@ -8,6 +8,8 @@ Skills learned:
 
 - Image overlay gradient
 
+- Animated underline affect with pseudo-elements
+
 Thanks for checking out this front-end coding challenge.
 
 [Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.

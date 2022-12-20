@@ -72,6 +72,7 @@ h1, h2, h3 {
 
 body {
   font-family: "Alata", sans-serif;
+  overflow-x: hidden;
 }
 
 a {
@@ -86,6 +87,23 @@ button {
   cursor: pointer;
 }
 
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+/*------------------------------------*\
+  # HELPER CLASSES
+\*------------------------------------*/
+.display-none {
+  display: none;
+}
+
+@media (max-width: 899px) {
+  .translate-x {
+    transform: translateX(100%);
+  }
+}
 .creation {
   position: relative;
   display: inline-block;
@@ -99,6 +117,11 @@ button {
   height: 100%;
   display: inline-block;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.61), rgba(255, 255, 255, 0));
+}
+@media (min-width: 900px) {
+  .creation picture::after {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.61), rgba(255, 255, 255, 0));
+  }
 }
 .creation h3 {
   color: hsl(0deg, 0%, 100%);
@@ -117,6 +140,55 @@ button.see-all {
   text-transform: uppercase;
 }
 
+/*------------------------------------*\
+  #NAVIGATION
+\*------------------------------------*/
+.background-container {
+  position: relative;
+}
+.background-container .logo {
+  position: relative;
+  z-index: 2;
+}
+
+nav .mobile-btns {
+  display: flex;
+  align-items: center;
+}
+@media (min-width: 900px) {
+  nav button {
+    display: none;
+  }
+}
+nav .hamburger-icon, nav .close-icon {
+  background-color: transparent;
+  border: transparent;
+  position: relative;
+  z-index: 2;
+}
+nav ul {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+@media (max-width: 899px) {
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 20px;
+    background-color: hsl(0deg, 0%, 0%);
+    text-transform: uppercase;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    transition: all 0.3s ease-in-out;
+  }
+}
 body > * {
   padding: 30px 20px;
 }
@@ -132,6 +204,32 @@ h2 {
 
 section {
   padding-block: 80px;
+}
+
+a {
+  position: relative;
+}
+
+a::after {
+  position: absolute;
+  bottom: -7px;
+  left: 0;
+  content: "";
+  width: 50%;
+  transform: translateX(50%) translateY(-4px);
+  height: 2px;
+  background-color: white;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.socials a::after {
+  bottom: -10px;
+}
+
+a:hover::after {
+  opacity: 1;
+  transform: translateX(50%) translateY(0);
 }
 
 .background-container {
@@ -156,10 +254,6 @@ section {
   justify-content: space-between;
   align-items: center;
   padding-top: 10px;
-}
-.background-container .hamburger-icon {
-  background-color: transparent;
-  border: transparent;
 }
 .background-container .hero {
   height: 500px;
@@ -256,32 +350,81 @@ section {
 footer {
   background-color: hsl(0deg, 0%, 0%);
   color: hsl(0deg, 0%, 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
   padding: 40px 0;
 }
-footer > * {
+footer .footer-container {
+  padding-inline: 20px;
+  width: 100%;
   max-width: 1150px;
   margin-inline: auto;
+}
+@media (min-width: 900px) {
+  footer .footer-container {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+footer > * {
+  margin-inline: auto;
+  max-width: 1150px;
+}
+footer .logo, footer .footer-links {
+  margin-bottom: 40px;
 }
 footer .logo img {
   margin-inline: auto;
 }
-footer .logo, footer .footer-links {
-  margin-bottom: 40px;
+@media (min-width: 900px) {
+  footer .logo img {
+    margin-inline: 0;
+  }
 }
 footer .footer-links {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
+@media (max-width: 899px) {
+  footer .footer-links a {
+    width: 10%;
+    margin-inline: auto;
+  }
+}
+@media (min-width: 900px) {
+  footer .footer-links {
+    flex-direction: row;
+    gap: 35px;
+    margin-bottom: 0;
+  }
+}
+footer .footer-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 footer .socials {
   display: flex;
-  gap: 10px;
-  align-items: center;
   justify-content: center;
+  gap: 10px;
   margin-bottom: 25px;
+}
+@media (min-width: 900px) {
+  footer .socials {
+    justify-content: flex-end;
+    gap: 15px;
+    margin-bottom: 0;
+  }
 }
 footer p {
   color: hsl(0deg, 0%, 41%);
   margin-bottom: 20px;
+}
+@media (min-width: 900px) {
+  footer p {
+    margin-bottom: 0;
+  }
 }/*# sourceMappingURL=main.css.map */

@@ -12,7 +12,11 @@
     display: inline-block;
     background-image: 
       linear-gradient(to right, rgba(0, 0, 0, 0.61), rgba(255, 255, 255, 0));
-      //mq (to top)
+      
+    @include for-tablet-up {
+      background-image: 
+        linear-gradient(to top, rgba(0, 0, 0, 0.61), rgba(255, 255, 255, 0));
+    }
   }
 
   h3 {
@@ -33,4 +37,85 @@ button.see-all {
   border: 1px solid $primary-900;
   border-radius: 2px;
   text-transform: uppercase;
+}
+
+
+
+/*------------------------------------*\
+  #NAVIGATION
+\*------------------------------------*/
+.background-container {
+  position: relative;
+
+  .logo {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+nav {  
+  .mobile-btns {
+    display: flex;
+    align-items: center;
+  }
+
+  @include for-tablet-up {
+    button {
+      display: none;
+    }
+  }
+
+  .hamburger-icon, .close-icon {
+    background-color: transparent;
+    border: transparent;
+    position: relative;
+    z-index: 2;
+  }
+
+  ul {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+
+    @include for-phone-only {
+      
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding-left: 20px;
+      background-color: $primary-900;
+      text-transform: uppercase;
+
+      position: absolute;
+      height: 100vh;
+      width: 100vw;
+      z-index: 1;
+      left: 0;
+      top: 0;
+
+      transition: all 0.3s ease-in-out;
+    }
+
+    // hides all but the hamburger icon and the close icon on mobile view
+
+    // li{
+    //   &:not(:nth-child(-n+2)) {
+    //   display: none;
+    //   }
+    // }
+
+    @include for-tablet-up {
+      li {
+        // // shows all
+        // &:not(:first-child) {
+        //   display: block;
+        // }
+        // hides hamburger and close icons
+        // &:first-child {
+        //   display: none;
+        // }
+      }  
+    }
+  }
 }

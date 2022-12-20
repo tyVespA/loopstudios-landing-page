@@ -97,6 +97,7 @@ h1, h2, h3 {
 
 body {
   font-family: 'Alata', sans-serif;
+  overflow-x: hidden;
 }
 
 a {
@@ -114,4 +115,27 @@ a {
 
 button {
   cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+
+
+
+
+/*------------------------------------*\
+  # HELPER CLASSES
+\*------------------------------------*/
+
+.display-none {
+  display: none;
+}
+
+@include for-phone-only {
+  .translate-x {
+    transform: translateX(100%);
+  }
 }
