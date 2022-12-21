@@ -18,30 +18,30 @@ section {
   padding-block: 80px;
 }
 
-a {
-  position: relative;
-}
+header, footer {
 
-a::after {
-  position: absolute;
-  bottom: -7px;
-  left: 0;
-  content: "";
-  width: 50%;
-  transform: translateX(50%) translateY(-4px);
-  height: 2px;
-  background-color: white;
-  opacity: 0;
-  transition: all 0.2s ease-in-out;
-}
+  a {
+    position: relative;
+  }
 
-.socials a::after {
-  bottom: -10px;
-}
+  a::after {
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    content: "";
+    width: 50%;
+    transform: translateX(50%) translateY(-4px);
+    height: 2px;
+    background-color: white;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+  }
 
-a:hover::after {
-  opacity: 1;
-  transform: translateX(50%) translateY(0)
+  a:hover::after {
+    opacity: 1;
+    transform: translateX(50%) translateY(0)
+  }
+
 }
 
 
@@ -152,6 +152,15 @@ a:hover::after {
     .see-all-mobile {
       display: none;
     }
+  }
+
+  .see-all {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .see-all:hover {
+    color: $primary-100;
+    background-color: $primary-900;
   }
 
   .creations {
