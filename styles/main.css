@@ -245,6 +245,17 @@ header a:hover::after, footer a:hover::after {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  position: relative;
+}
+.background-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.397);
 }
 @media (min-width: 900px) {
   .background-container {
@@ -254,6 +265,8 @@ header a:hover::after, footer a:hover::after {
 .background-container > * {
   max-width: 1150px;
   margin-inline: auto;
+  position: relative;
+  z-index: 99;
 }
 .background-container header {
   display: flex;
@@ -262,15 +275,20 @@ header a:hover::after, footer a:hover::after {
   padding-top: 10px;
 }
 .background-container .hero {
-  height: 500px;
+  min-height: 550px;
   display: flex;
 }
 .background-container .hero h1 {
   border: 1px solid hsl(0deg, 0%, 100%);
   margin-block: auto;
   padding: 20px;
-  font-size: 2.5rem;
-  max-width: 15ch;
+  font-size: 4.5rem;
+  max-width: 14ch;
+}
+@media (max-width: 899px) {
+  .background-container .hero h1 {
+    font-size: 2.5rem;
+  }
 }
 
 .section-one {
